@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery</title>
+    <link rel="stylesheet" type="text/css" href="jQuery_Users.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //Clear input fields on page load
+            $('input').val("");
+
+            //Prevents form from submitting
+            $('form').submit(function() {
+                return false;
+            });
+
+        });
+        //Defines input as variables, then run command to append to table
+        $(document).on('click', 'button', function() {
+            $firstname = $("input[name='firstname']").val();
+            $lastname = $("input[name='lastname']").val();
+            $email = $("input[name='email']").val();
+            $contact = $("input[name='contact']").val();
+
+            $('table').append("<tr><td>" + $firstname + "</td>" + "<td>" + $lastname + "</td>" + "<td>" + $email + "</td>" + "<td>" + $contact + "</td></tr>");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="table_heading">
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email Address</td>
+                <td>Contact #</td>
+            </tr>
+        </table>
+    </div>
+    <div id="bottom_area">
+        <h1>Add User</h1>
+        <form>First Name:
+            <input type="text" name="firstname" placeholder="First Name"><br> Last Name:
+            <input type="text" name="lastname" placeholder="Last Name"><br> Email Address:
+            <input type="text" name="email" placeholder="Email Address"><br> Contact No.:
+            <input type="text" name="contact" placeholder="Phone #">
+            <button>Add User</button>
+
+        </form>
+    </div>
+</body>
+
+</html>
